@@ -21,12 +21,12 @@ def selection_sort(arr):
     return newArr
 #qiuck sort
 #time complexity on avearge is O(nlog n) in owrest case O(n*n) depending on the pivot
-#fastest sorting algorithm
+#on of the fastest sorting algorithm on average 
 def quick_sort(arr):
     if(len(arr)<2):
         return arr
     else:
-        pivot=arr[0]
+        pivot=arr[0]#it's better to select a random number as a pivot to make average time complexity of O(n *log n)
         less=[i for i in arr[1:] if i<=pivot]
         greater=[i for i in arr[1:] if i>pivot]
         return quick_sort(less)+[pivot]+quick_sort(greater)
