@@ -20,7 +20,7 @@ def selection_sort(arr):
         arr.pop(index)
     return newArr
 #qiuck sort
-#time complexity O(nlog n)
+#time complexity on avearge is O(nlog n) in owrest case O(n*n) depending on the pivot
 #fastest sorting algorithm
 def quick_sort(arr):
     if(len(arr)<2):
