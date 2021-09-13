@@ -20,6 +20,16 @@ def selection_sort(arr):
         arr.pop(index)
     return newArr
 #qiuck sort
+#time complexity O(nlog n)
+#fastest sorting algorithm
+def quick_sort(arr):
+    if(len(arr)<2):
+        return arr
+    else:
+        pivot=arr[0]
+        less=[i for i in arr[1:] if i<=pivot]
+        greater=[i for i in arr[1:] if i>pivot]
+        return quick_sort(less)+[pivot]+quick_sort(greater)
 
 #bubble sort
 
@@ -27,3 +37,4 @@ if __name__ == '__main__':
     l=[12,56,845,23,45,23,45,76,4,3,8,9,4,6]
     print(l)
     print(selection_sort(l))
+    print(quick_sort(l))
