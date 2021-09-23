@@ -1,15 +1,13 @@
 #tring to find most close seller to you from your contacts and frinends contacts
+#tring to find most close seller to you from your contacts and frinends contacts
 from collections import deque
 graph={}
-graph["you"]=["ali","ahmed"]
-graph["ali"]=["tom"]
-graph["tom"]=[]
-graph["ahmed"]=["emad","khaled"]
-graph["khaled"]=[]
-graph["emad"]=[]
 
 def person_is_seller(person):
-    return person[-1]=='i'
+    if person:
+        return person[1]
+    else:
+        return False
 
 def search(name):
     search_queue=deque()
@@ -19,13 +17,20 @@ def search(name):
         person=search_queue.popleft()
         if not person in searched:
             if person_is_seller(person):
-                print(f"{person} is a seller!")
+                print(f"{person[0]} is a seller!")
                 return True
             else:
-                search_queue+=graph[person]
-                searched.append(person)
+                if person:
+                    search_queue+=graph[person]
+                    searched.append(person)
+    print("not found")
     return False
 
 
 if __name__ == '__main__':
-    search("you")
+    graph[("you",False)]=[("ali",False),("ahmed",False)]
+    graph[("ali",False)]=[("Amr",False)]
+    graph[("Amr",False)]=[("said",True)]
+    graph[("ahmed",False)]=[()]
+    graph[("said",True)]=[()]
+    search(("you",False))
